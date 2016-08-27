@@ -3,20 +3,16 @@
         <title>Django Girls blog</title>
     </head>
     <body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+      <div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+      </div>
 
-        <div>
-            <p>published: 27.08.2016, 15:40</p>
-            <h2><a href="">First Post</a></h2>
-            <p>The language is a very important cultural good.</p>
-        </div>
-
-        <div>
-            <p>published: 27.08.2016, 15:40</p>
-            <h2><a href="">Second post</a></h2>
-            <p>Languages are to be preserved and at the same time they have to develop in order to adjust to the world's developments.</p>
-        </div>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
     </body>
 </html>
